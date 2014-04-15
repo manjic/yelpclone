@@ -1,6 +1,7 @@
 Yelpclone::Application.routes.draw do
 
-  get "reviews/new"
+  devise_for :users
+  root 'restaurant#index'
   resources :restaurants do
     resources :reviews
   end
