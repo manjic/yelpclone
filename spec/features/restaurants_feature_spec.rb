@@ -19,6 +19,14 @@ describe 'the restaurants index page' do
         expect(current_path).to eq '/restaurants'
         expect(page).to have_content 'McDonalds'
       end
+
+       it 'should display errors if bad data is given' do
+          visit '/restaurants'
+          click_link 'Add a restaurant'
+          click_button 'Create Restaurant'
+
+          expect(page).to have_content 'error'
+        end
     end
   end
 
